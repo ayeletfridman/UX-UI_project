@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="he">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cafe Joy - אודות</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <h1>Cafe Joy</h1>
+        <img src="../images/logo.png" alt="לוגו Cafe Joy" class="logo-img" />
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../index.html">בית</a></li>
+          <li><a href="about.html" class="active">אודות</a></li>
+          <li><a href="media.html">מדיה</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">צור קשר</a></li>
+        </ul>
+        <div class="burger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <nav class="side-nav">
+          <ul>
+            <li><a href="../index.html">בית</a></li>
+            <li><a href="about.html" class="active">אודות</a></li>
+            <li><a href="media.html">מדיה</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">צור קשר</a></li>
+          </ul>
+        </nav>
+      </nav>
+    </header>
+
+    <section class="about">
+      <div class="profile">
+        <img src="../images/owner.jpg" alt="מנהל העסק" />
+        <h2>אלון גל</h2>
+        <p>
+          אלון גל, מייסד ובעלים של <strong>Cafe Joy</strong>, הוא חובב קפה מושבע
+          שהחל את דרכו בעולם הקפה כבר בגיל צעיר. עם שנים של ניסיון בתחום
+          הקולינריה והאירוח, אלון החליט להגשים חלום וליצור בית קפה חמים וביתי
+          שבו כל לקוח ירגיש בבית.
+        </p>
+        <p>
+          החזון של אלון הוא לא רק להגיש קפה איכותי, אלא גם לבנות מקום שבו
+          האנשים, האווירה והטעמים מתחברים לחוויה ייחודית. בעיניו, קפה טוב הוא
+          הרבה יותר ממשקה – הוא דרך ליצור רגעים קטנים של שמחה ביום-יום.
+        </p>
+      </div>
+
+      <div class="profile">
+        <img src="../images/slide1.jpg" alt="הקפה שלנו" />
+        <h2>Cafe Joy</h2>
+        <p>
+          <strong>Cafe Joy</strong> הוקם מתוך אהבה לקפה ואנשים. אצלנו תוכלו
+          למצוא מבחר רחב של משקאות קפה מיוחדים, עוגות ומאפים שנאפים מדי יום,
+          ותפריט קליל שמתאים לכל שעה. המקום עוצב כך שיתאים גם לפגישות עבודה וגם
+          למפגשים עם חברים, באווירה ביתית ונעימה.
+        </p>
+        <p>
+          הקפדה על חומרי גלם איכותיים, שירות אישי וחיוך גדול הם הערכים שמלווים
+          אותנו בכל יום מחדש. אנחנו מזמינים אתכם להצטרף למשפחת Cafe Joy ולגלות
+          מה באמת עושה אותנו מיוחדים.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <p>נבנה על ידי: איילת ויזל © 2025</p>
+      <div class="social-icons">
+        <a href="#"><img src="../images/facebook.webp" alt="Facebook" /></a>
+        <a href="#"><img src="../images/instegram.webp" alt="Twitter" /></a>
+        <a href="#"><img src="../images/linkedin.png" alt="LinkedIn" /></a>
+        <a href="#"><img src="../images/youtube.png" alt="YouTube" /></a>
+      </div>
+    </footer>
+
+    <script>
+      const burger = document.querySelector(".burger");
+      const sideNav = document.querySelector(".side-nav");
+
+      burger.addEventListener("click", () => {
+        sideNav.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>

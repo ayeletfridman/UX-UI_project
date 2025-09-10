@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="he">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cafe Joy - צור קשר</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <h1>Cafe Joy</h1>
+        <img src="../images/logo.png" alt="לוגו Cafe Joy" class="logo-img" />
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../index.html">בית</a></li>
+          <li><a href="about.html">אודות</a></li>
+          <li><a href="media.html">מדיה</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">צור קשר</a></li>
+        </ul>
+        <div class="burger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <nav class="side-nav">
+          <ul>
+            <li><a href="../index.html">בית</a></li>
+            <li><a href="about.html" class="active">אודות</a></li>
+            <li><a href="media.html">מדיה</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">צור קשר</a></li>
+          </ul>
+        </nav>
+      </nav>
+    </header>
+
+    <section class="contact-form">
+      <h2>צור קשר</h2>
+      <form
+        action="thankyou.html"
+        method="get"
+        onsubmit="return validateForm()"
+      >
+        <label for="name">שם:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">אימייל:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">הערות:</label>
+        <textarea id="message" name="message"></textarea>
+
+        <button type="submit">שלח</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>נבנה על ידי: איילת ויזל © 2025</p>
+      <div class="social-icons">
+        <a href="#"><img src="../images/facebook.webp" alt="Facebook" /></a>
+        <a href="#"><img src="../images/instegram.webp" alt="Twitter" /></a>
+        <a href="#"><img src="../images/linkedin.png" alt="LinkedIn" /></a>
+        <a href="#"><img src="../images/youtube.png" alt="YouTube" /></a>
+      </div>
+    </footer>
+
+    <script>
+      function validateForm() {
+        const email = document.getElementById("email").value;
+        const name = document.getElementById("name").value;
+        const msg = document.getElementById("message").value;
+        if (!name || !email || !msg) {
+          alert("נא למלא את כל השדות");
+          return false;
+        }
+        if (!email.includes("@") || !email.includes(".")) {
+          alert("נא להזין אימייל תקין");
+          return false;
+        }
+        return true;
+      }
+    </script>
+
+    <script>
+      const burger = document.querySelector(".burger");
+      const sideNav = document.querySelector(".side-nav");
+
+      burger.addEventListener("click", () => {
+        sideNav.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>

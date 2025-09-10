@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="he">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cafe Joy - FAQ</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <h1>Cafe Joy</h1>
+        <img src="../images/logo.png" alt="לוגו Cafe Joy" class="logo-img" />
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../index.html">בית</a></li>
+          <li><a href="about.html">אודות</a></li>
+          <li><a href="media.html">מדיה</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">צור קשר</a></li>
+        </ul>
+        <div class="burger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <nav class="side-nav">
+          <ul>
+            <li><a href="../index.html">בית</a></li>
+            <li><a href="about.html" class="active">אודות</a></li>
+            <li><a href="media.html">מדיה</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">צור קשר</a></li>
+          </ul>
+        </nav>
+      </nav>
+    </header>
+
+    <section class="faq">
+      <h2>שאלות נפוצות</h2>
+      <div class="accordion">
+        <button class="accordion-btn">מה שעות הפעילות?</button>
+        <div class="panel"><p>אנו פתוחים כל יום 08:00-22:00.</p></div>
+
+        <button class="accordion-btn">האם יש חניה?</button>
+        <div class="panel"><p>כן, יש חניה מסודרת ליד בית הקפה.</p></div>
+
+        <button class="accordion-btn">האם מוגש קפה טייק אווי?</button>
+        <div class="panel">
+          <p>כן, אנו מספקים קפה לשתייה מחוץ לבית הקפה.</p>
+        </div>
+
+        <!-- שאלות נוספות -->
+        <button class="accordion-btn">האם יש מנות טבעוניות?</button>
+        <div class="panel">
+          <p>
+            כן, אנו מציעים מגוון מנות טבעוניות כולל קינוחים וקפה עם חלב צמחי.
+          </p>
+        </div>
+
+        <button class="accordion-btn">האם ניתן לבצע הזמנת מקום מראש?</button>
+        <div class="panel">
+          <p>בהחלט, ניתן להזמין מקום בטלפון או דרך האתר שלנו.</p>
+        </div>
+
+        <button class="accordion-btn">האם יש משלוחים?</button>
+        <div class="panel">
+          <p>כן, אנו מבצעים משלוחים באזור הקרוב לבית הקפה.</p>
+        </div>
+
+        <button class="accordion-btn">האם יש הנחות לסטודנטים?</button>
+        <div class="panel">
+          <p>כן, סטודנטים מקבלים 10% הנחה בהצגת כרטיס סטודנט תקף.</p>
+        </div>
+
+        <button class="accordion-btn">האם הקפה כשר?</button>
+        <div class="panel"><p>כן, כל המוצרים שלנו כשרים בפיקוח.</p></div>
+
+        <button class="accordion-btn">האם יש מנות ללא גלוטן?</button>
+        <div class="panel">
+          <p>כן, אנו מציעים מבחר מנות וקינוחים ללא גלוטן.</p>
+        </div>
+
+        <button class="accordion-btn">האם המקום מתאים לילדים?</button>
+        <div class="panel">
+          <p>בהחלט, יש לנו תפריט ילדים ופינת משחק קטנה.</p>
+        </div>
+
+        <button class="accordion-btn">אפשר לשלם באשראי או ביט?</button>
+        <div class="panel">
+          <p>כן, אנו מקבלים אשראי, מזומן ותשלומים בביט.</p>
+        </div>
+
+        <button class="accordion-btn">האם יש אינטרנט אלחוטי?</button>
+        <div class="panel"><p>כן, יש לנו Wi-Fi חינם לכל הלקוחות.</p></div>
+
+        <button class="accordion-btn">האם ניתן לערוך אצלכם אירועים?</button>
+        <div class="panel">
+          <p>כן, ניתן להזמין את המקום לאירועים פרטיים עד 50 איש.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>נבנה על ידי: איילת ויזל © 2025</p>
+      <div class="social-icons">
+        <a href="#"><img src="../images/facebook.webp" alt="Facebook" /></a>
+        <a href="#"><img src="../images/instegram.webp" alt="Twitter" /></a>
+        <a href="#"><img src="../images/linkedin.png" alt="LinkedIn" /></a>
+        <a href="#"><img src="../images/youtube.png" alt="YouTube" /></a>
+      </div>
+    </footer>
+
+    <script>
+      const accBtns = document.querySelectorAll(".accordion-btn");
+
+      accBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          // סגור את כל הפאנלים
+          accBtns.forEach((otherBtn) => {
+            if (otherBtn !== btn) {
+              otherBtn.nextElementSibling.style.display = "none";
+            }
+          });
+
+          // פתח/סגור את הפאנל הנוכחי
+          const panel = btn.nextElementSibling;
+          panel.style.display =
+            panel.style.display === "block" ? "none" : "block";
+        });
+      });
+    </script>
+
+    <script>
+      const burger = document.querySelector(".burger");
+      const sideNav = document.querySelector(".side-nav");
+
+      burger.addEventListener("click", () => {
+        sideNav.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>

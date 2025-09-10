@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="he">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cafe Joy - בית</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="logo">
+        <h1>Cafe Joy</h1>
+        <img src="images/logo.png" alt="לוגו Cafe Joy" class="logo-img" />
+      </div>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">בית</a></li>
+          <li><a href="pages/about.html">אודות</a></li>
+          <li><a href="pages/media.html">מדיה</a></li>
+          <li><a href="pages/faq.html">FAQ</a></li>
+          <li><a href="pages/contact.html">צור קשר</a></li>
+        </ul>
+        <div class="burger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+
+        <nav class="side-nav">
+          <ul>
+            <li><a href="index.html">בית</a></li>
+            <li><a href="pages/about.html">אודות</a></li>
+            <li><a href="pages/media.html">מדיה</a></li>
+            <li><a href="pages/faq.html">FAQ</a></li>
+            <li><a href="pages/contact.html">צור קשר</a></li>
+          </ul>
+        </nav>
+      </nav>
+    </header>
+
+    <!-- סליידר -->
+    <section class="slider">
+      <div class="slide active">
+        <img src="images/slide6.png" alt="Slide 1" />
+      </div>
+      <div class="slide active">
+        <img src="images/slide8.webp" alt="Slide 1" />
+      </div>
+      <div class="slide">
+        <img src="images/slide7.jpg" alt="Slide 2" />
+      </div>
+      <div class="slide">
+        <img src="images/slide13.jpg" alt="Slide 3" />
+      </div>
+      <div class="slide">
+        <img src="images/slide15.webp" alt="Slide 4" />
+      </div>
+    </section>
+
+    <!-- דיב קופסאות מידע -->
+    <section class="info-boxes">
+      <div class="box">
+        <h3>הקפה שלנו</h3>
+        <p>
+          אנו משתמשים בפולי קפה איכותיים שנקלים מדי שבוע כדי להבטיח טעם טרי
+          ומיוחד.
+        </p>
+        <a href="#" class="read-more" data-target="coffee">לקרוא עוד</a>
+        <div id="coffee" class="more-text">
+          <p>
+            אנו מביאים את הפולים מחוות בברזיל, קולומביה ואתיופיה, ומשלבים קלייה
+            מסורתית עם חדשנות מודרנית. בכל ספל שתקבלו תרגישו את הרעננות והאהבה
+            שלנו לעולם הקפה.
+          </p>
+        </div>
+      </div>
+
+      <div class="box">
+        <h3>המיקום שלנו</h3>
+        <p>בית הקפה נמצא בלב העיר, נגיש ונוח להגעה.</p>
+        <a href="#" class="read-more" data-target="location">לקרוא עוד</a>
+        <div id="location" class="more-text">
+          <p>
+            אנו ממוקמים במרכז העיר ליד התחבורה הציבורית, עם חניה מסודרת וצמודה.
+            בית הקפה שלנו משקיף לנוף ירוק ומשרה אווירה נעימה ורגועה ללקוחות.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- באנרים צדדים -->
+    <!-- <div class="side-banner left">מבצע מיוחד!</div>
+    <div class="side-banner right">קפה חדש הגיע</div> -->
+
+    <!-- FOOTER -->
+    <footer>
+      <p>נבנה על ידי: איילת ויזל © 2025</p>
+      <div class="social-icons">
+        <a href="#"><img src="images/facebook.webp" alt="Facebook" /></a>
+        <a href="#"><img src="images/instegram.webp" alt="Twitter" /></a>
+        <a href="#"><img src="images/linkedin.png" alt="LinkedIn" /></a>
+        <a href="#"><img src="images/youtube.png" alt="YouTube" /></a>
+      </div>
+    </footer>
+
+    <script>
+      // ====== סקריפט סליידר ======
+      const slides = document.querySelectorAll(".slide");
+      let currentSlide = 0;
+
+      function showSlide(index) {
+        slides.forEach((s) => s.classList.remove("active"));
+        slides[index].classList.add("active");
+      }
+
+      // מעבר אוטומטי כל 5 שניות
+      setInterval(() => {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+      }, 2000);
+
+      // כפתורי מעבר
+      document.getElementById("prev-slide").addEventListener("click", () => {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+      });
+      document.getElementById("next-slide").addEventListener("click", () => {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+      });
+
+      // ====== התאמת גובה סליידר לפי תמונה ======
+      function adjustSliderHeight() {
+        const slider = document.querySelector(".slider");
+        const firstSlideImg = slider.querySelector(".slide img");
+        if (firstSlideImg.complete) {
+          const ratio =
+            firstSlideImg.naturalHeight / firstSlideImg.naturalWidth;
+          slider.style.height = `${slider.offsetWidth * ratio}px`;
+        } else {
+          firstSlideImg.onload = () => {
+            const ratio =
+              firstSlideImg.naturalHeight / firstSlideImg.naturalWidth;
+            slider.style.height = `${slider.offsetWidth * ratio}px`;
+          };
+        }
+      }
+
+      window.addEventListener("load", adjustSliderHeight);
+      window.addEventListener("resize", adjustSliderHeight);
+
+      // ====== AOS בסיסי לדיבים ======
+      function aosInit() {
+        const elements = document.querySelectorAll("[data-aos]");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting)
+                entry.target.classList.add("aos-animate");
+            });
+          },
+          { threshold: 0.1 }
+        );
+        elements.forEach((el) => observer.observe(el));
+      }
+      window.addEventListener("DOMContentLoaded", aosInit);
+
+      document.querySelectorAll(".read-more").forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const target = document.getElementById(link.dataset.target);
+          target.style.display =
+            target.style.display === "block" ? "none" : "block";
+        });
+      });
+    </script>
+
+    <script>
+      document.querySelectorAll(".read-more").forEach((link) => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute("data-target");
+          const target = document.getElementById(targetId);
+
+          if (target.style.display === "block") {
+            target.style.display = "none";
+            this.textContent = "לקרוא עוד";
+          } else {
+            target.style.display = "block";
+            this.textContent = "להסתיר";
+          }
+        });
+      });
+    </script>
+    <script>
+      const burger = document.querySelector(".burger");
+      const sideNav = document.querySelector(".side-nav");
+
+      burger.addEventListener("click", () => {
+        sideNav.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>

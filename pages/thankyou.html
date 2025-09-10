@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="he">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cafe Joy - תודה</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <h1>Cafe Joy</h1>
+        <img src="../images/logo.png" alt="לוגו Cafe Joy" class="logo-img" />
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../index.html">בית</a></li>
+          <li><a href="about.html">אודות</a></li>
+          <li><a href="media.html">מדיה</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">צור קשר</a></li>
+        </ul>
+        <div class="burger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <nav class="side-nav">
+          <ul>
+            <li><a href="../index.html">בית</a></li>
+            <li><a href="about.html" class="active">אודות</a></li>
+            <li><a href="media.html">מדיה</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">צור קשר</a></li>
+          </ul>
+        </nav>
+      </nav>
+    </header>
+    <section class="thankyou">
+      <div class="thankyou-box">
+        <h2>תודה שפנית אלינו! ☕</h2>
+        <p>קיבלנו את פנייתך וניצור איתך קשר בהקדם האפשרי.</p>
+        <a href="../index.html" class="home-btn">חזור לעמוד הבית</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>נבנה על ידי: איילת ויזל © 2025</p>
+      <div class="social-icons">
+        <a href="#"><img src="../images/facebook.webp" alt="Facebook" /></a>
+        <a href="#"><img src="../images/instegram.webp" alt="Twitter" /></a>
+        <a href="#"><img src="../images/linkedin.png" alt="LinkedIn" /></a>
+        <a href="#"><img src="../images/youtube.png" alt="YouTube" /></a>
+      </div>
+    </footer>
+
+    <script>
+      const burger = document.querySelector(".burger");
+      const sideNav = document.querySelector(".side-nav");
+
+      burger.addEventListener("click", () => {
+        sideNav.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>

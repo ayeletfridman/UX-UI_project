@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="he">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cafe Joy - מדיה</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <h1>Cafe Joy</h1>
+        <img src="../images/logo.png" alt="לוגו Cafe Joy" class="logo-img" />
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../index.html">בית</a></li>
+          <li><a href="about.html">אודות</a></li>
+          <li><a href="media.html">מדיה</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">צור קשר</a></li>
+        </ul>
+        <div class="burger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <nav class="side-nav">
+          <ul>
+            <li><a href="../index.html">בית</a></li>
+            <li><a href="about.html" class="active">אודות</a></li>
+            <li><a href="media.html">מדיה</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">צור קשר</a></li>
+          </ul>
+        </nav>
+      </nav>
+    </header>
+
+    <section class="gallery">
+      <h2>גלריית תמונות</h2>
+      <div class="images-grid">
+        <a href="../images/slide1.jpg" class="lightbox-link"
+          ><img src="../images/slide1.jpg" alt="תמונה 1"
+        /></a>
+        <a href="../images/slide2.jpg" class="lightbox-link"
+          ><img src="../images/slide2.jpg" alt="תמונה 2"
+        /></a>
+        <a href="../images/slide3.jpg" class="lightbox-link"
+          ><img src="../images/slide3.jpg" alt="תמונה 3"
+        /></a>
+        <a href="../images/slide4.jpg" class="lightbox-link"
+          ><img src="../images/slide4.jpg" alt="תמונה 4"
+        /></a>
+        <a href="../images/slide5.jpg" class="lightbox-link"
+          ><img src="../images/slide5.jpg" alt="תמונה 4"
+        /></a>
+        <a href="../images/slide6.png" class="lightbox-link"
+          ><img src="../images/slide6.png" alt="תמונה 4"
+        /></a>
+        <a href="../images/slide7.jpg" class="lightbox-link"
+          ><img src="../images/slide7.jpg" alt="תמונה 4"
+        /></a>
+        <a href="../images/slide8.webp" class="lightbox-link"
+          ><img src="../images/slide8.webp" alt="תמונה 4"
+        /></a>
+        <a href="../images/slide9.webp" class="lightbox-link"
+          ><img src="../images/slide9.webp" alt="תמונה 4"
+        /></a>
+        <a href="../images/slide10.webp" class="lightbox-link"
+          ><img src="../images/slide10.webp" alt="תמונה 4"
+        /></a>
+        <a href="../images/slide11.webp" class="lightbox-link"
+          ><img src="../images/slide11.webp" alt="תמונה 4"
+        /></a>
+
+        <a href="../images/slide13.jpg" class="lightbox-link"
+          ><img src="../images/slide13.jpg" alt="תמונה 4"
+        /></a>
+        <a href="../images/slide14.jpg" class="lightbox-link"
+          ><img src="../images/slide14.jpg" alt="תמונה 4"
+        /></a>
+        <a href="../images/slide15.webp" class="lightbox-link"
+          ><img src="../images/slide15.webp" alt="תמונה 4"
+        /></a>
+      </div>
+
+      <!-- Lightbox Overlay -->
+      <div id="lightbox-overlay">
+        <span id="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" />
+      </div>
+
+      <h2>מתכונים</h2>
+      <div class="videos">
+        <video width="300" height="200" controls>
+          <source src="../images/video1.mp4" type="video/mp4" />
+          הדפדפן שלך אינו תומך בוידאו.
+        </video>
+
+        <video width="300" height="200" controls>
+          <source src="../images/video2.mp4" type="video/mp4" />
+          הדפדפן שלך אינו תומך בוידאו.
+        </video>
+      </div>
+    </section>
+
+    <footer>
+      <p>נבנה על ידי: איילת ויזל © 2025</p>
+      <div class="social-icons">
+        <a href="#"><img src="../images/facebook.webp" alt="Facebook" /></a>
+        <a href="#"><img src="../images/instegram.webp" alt="Twitter" /></a>
+        <a href="#"><img src="../images/linkedin.png" alt="LinkedIn" /></a>
+        <a href="#"><img src="../images/youtube.png" alt="YouTube" /></a>
+      </div>
+    </footer>
+
+    <script>
+      const lightboxLinks = document.querySelectorAll(".lightbox-link");
+      const lightboxOverlay = document.getElementById("lightbox-overlay");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const lightboxClose = document.getElementById("lightbox-close");
+
+      lightboxLinks.forEach((link) => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          lightboxImg.src = this.href;
+          lightboxOverlay.style.display = "flex";
+        });
+      });
+
+      lightboxClose.addEventListener(
+        "click",
+        () => (lightboxOverlay.style.display = "none")
+      );
+      lightboxOverlay.addEventListener("click", (e) => {
+        if (e.target === lightboxOverlay)
+          lightboxOverlay.style.display = "none";
+      });
+    </script>
+
+    <script>
+      const burger = document.querySelector(".burger");
+      const sideNav = document.querySelector(".side-nav");
+
+      burger.addEventListener("click", () => {
+        sideNav.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>
