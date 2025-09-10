@@ -225,49 +225,69 @@ header .logo h1 {
 .side-banner {
   position: fixed;
   top: 200px;
-  width: 140px;
-  height: 220px;
-  background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
-  text-align: center;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  font-weight: bold;
-  color: #333;
+  width: 160px; /* קצת רחב יותר */
+  height: 200px; /*קצת גבוה יותר */
+  background: linear-gradient(90deg, #ff9a9e, #fad0c4);
+  color: #fff; /* טקסט לבן ברור */
+  font-family: "Assistant", sans-serif;
+  font-weight: 700;
+  font-size: 1.1em;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  transition: transform 0.4s, opacity 0.4s;
+  padding: 20px;
+  border-radius: 20px; /* עיגול יותר מודרני */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+  opacity: 0.7;
 }
 
 .side-banner.left {
-  left: 0;
+  left: 10px; /* רווח קטן מהקצה */
 }
 .side-banner.right {
-  right: 0;
+  right: 10px;
 }
 
+.side-banner:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  opacity: 1;
+}
+
+/* ====== טקסט נוסף בתוך הסייד-באנר ====== */
 .more-text {
   display: none;
-  margin-top: 10px;
-  background: #f9f9f9;
+  margin-top: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
   padding: 12px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   font-size: 0.95em;
   line-height: 1.6;
+  text-align: center;
+  transition: opacity 0.3s ease;
 }
+
+/* ====== כפתור לקרוא עוד ====== */
 .read-more {
   display: inline-block;
-  margin-top: 8px;
-  color: #6c63ff;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-.read-more:hover {
+  margin-top: 10px;
   color: #ff6f61;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.read-more:hover {
+  background: rgba(255, 255, 255, 0.6);
+  color: #6c63ff;
 }
 
 /* ====== FOOTER ====== */
@@ -309,8 +329,23 @@ footer .social-icons a img:hover {
   border-radius: 50px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s, box-shadow 0.3s;
+  /* ===== אנימציה ===== */
+  opacity: 0; /* מתחיל שקוף */
+  transform: translateY(40px); /* מתחיל למטה */
+  animation: fadeInUp 0.8s forwards; /* אנימציה */
 }
 
+/* ===== אנימציה keyframes ===== */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .profile:hover {
   transform: translateY(-7px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -346,14 +381,28 @@ footer .social-icons a img:hover {
   padding: 20px 0;
 }
 
+/* אנימציה של העלאה מלמטה + fade-in */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px); /* מתחילים מלמטה */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .images-grid img {
   width: 350px;
   height: 250px;
   object-fit: cover;
   border-radius: 15px;
   cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
   margin: 0 auto;
+  opacity: 0; /* מתחיל שקוף */
+  animation: fadeInUp 0.8s forwards;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .images-grid img:hover {
@@ -377,12 +426,14 @@ footer .social-icons a img:hover {
 }
 
 #lightbox-overlay img {
-  max-width: 90%;
-  max-height: 80%;
+  width: 70%; /* תמלא את ה-overlay */
+  height: auto; /* שמירה על יחס תמונה */
+  max-height: 80vh; /* לא לעבור 90% מגובה המסך */
+  object-fit: contain;
   border-radius: 15px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease;
 }
-
 #lightbox-close {
   color: #fff;
   font-size: 40px;

@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cafe Joy - בית</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- HEADER -->
@@ -40,7 +44,6 @@
       </nav>
     </header>
 
-    <!-- סליידר -->
     <section class="slider">
       <div class="slide active">
         <img src="images/slide6.png" alt="Slide 1" />
@@ -59,7 +62,6 @@
       </div>
     </section>
 
-    <!-- דיב קופסאות מידע -->
     <section class="info-boxes">
       <div class="box">
         <h3>הקפה שלנו</h3>
@@ -90,9 +92,13 @@
       </div>
     </section>
 
-    <!-- באנרים צדדים -->
-    <!-- <div class="side-banner left">מבצע מיוחד!</div>
-    <div class="side-banner right">קפה חדש הגיע</div> -->
+    <a href="pages/contact.html" class="side-banner left">
+      מבצע מיוחד! צרו קשר לפרטים נוספים
+    </a>
+
+    <a href="pages/media.html" class="side-banner right">
+      הקפה הכי טוב בעיר - תראו בעצמכם
+    </a>
 
     <!-- FOOTER -->
     <footer>
@@ -106,7 +112,6 @@
     </footer>
 
     <script>
-      // ====== סקריפט סליידר ======
       const slides = document.querySelectorAll(".slide");
       let currentSlide = 0;
 
