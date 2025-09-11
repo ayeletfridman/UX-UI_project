@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html lang="he">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cafe Joy - בית</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cafe Joy - בית</title>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <!-- HEADER -->
@@ -25,6 +42,7 @@
           <li><a href="pages/media.html">מדיה</a></li>
           <li><a href="pages/faq.html">FAQ</a></li>
           <li><a href="pages/contact.html">צור קשר</a></li>
+          <li><a href="pages/trivia.html">טריוויה</a></li>
         </ul>
         <div class="burger">
           <div></div>
@@ -39,6 +57,7 @@
             <li><a href="pages/media.html">מדיה</a></li>
             <li><a href="pages/faq.html">FAQ</a></li>
             <li><a href="pages/contact.html">צור קשר</a></li>
+            <li><a href="pages/trivia.html">טריוויה</a></li>
           </ul>
         </nav>
       </nav>
@@ -110,7 +129,7 @@
         <a href="#"><img src="images/youtube.png" alt="YouTube" /></a>
       </div>
     </footer>
-
+    <!-- slider script -->
     <script>
       const slides = document.querySelectorAll(".slide");
       let currentSlide = 0;
@@ -120,21 +139,11 @@
         slides[index].classList.add("active");
       }
 
-      // מעבר אוטומטי כל 5 שניות
+      // מעבר אוטומטי כל 2 שניות
       setInterval(() => {
         currentSlide = (currentSlide + 1) % slides.length;
         showSlide(currentSlide);
       }, 2000);
-
-      // כפתורי מעבר
-      document.getElementById("prev-slide").addEventListener("click", () => {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        showSlide(currentSlide);
-      });
-      document.getElementById("next-slide").addEventListener("click", () => {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-      });
 
       // ====== התאמת גובה סליידר לפי תמונה ======
       function adjustSliderHeight() {
@@ -155,33 +164,8 @@
 
       window.addEventListener("load", adjustSliderHeight);
       window.addEventListener("resize", adjustSliderHeight);
-
-      // ====== AOS בסיסי לדיבים ======
-      function aosInit() {
-        const elements = document.querySelectorAll("[data-aos]");
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting)
-                entry.target.classList.add("aos-animate");
-            });
-          },
-          { threshold: 0.1 }
-        );
-        elements.forEach((el) => observer.observe(el));
-      }
-      window.addEventListener("DOMContentLoaded", aosInit);
-
-      document.querySelectorAll(".read-more").forEach((link) => {
-        link.addEventListener("click", (e) => {
-          e.preventDefault();
-          const target = document.getElementById(link.dataset.target);
-          target.style.display =
-            target.style.display === "block" ? "none" : "block";
-        });
-      });
     </script>
-
+    <!-- read more script -->
     <script>
       document.querySelectorAll(".read-more").forEach((link) => {
         link.addEventListener("click", function (e) {
@@ -199,6 +183,7 @@
         });
       });
     </script>
+    <!-- burger script -->
     <script>
       const burger = document.querySelector(".burger");
       const sideNav = document.querySelector(".side-nav");

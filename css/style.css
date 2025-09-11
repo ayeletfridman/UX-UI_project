@@ -3,11 +3,11 @@ body,
 html {
   margin: 0;
   padding: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   direction: rtl;
   background: #f0f4f8;
   color: #333;
   scroll-behavior: smooth;
+  font-family: "Varela Round", sans-serif;
 }
 
 a {
@@ -26,11 +26,12 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
+  font-size: 20px;
 }
 
 header .logo h1 {
   margin: 0;
-  font-family: "Pacifico", cursive;
+  font-family: "Secular One", sans-serif;
   font-size: 28px;
   color: #fff;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
@@ -181,6 +182,8 @@ header .logo h1 {
   background: #fff;
   padding: 25px 20px;
   text-align: center;
+  font-family: "Heebo", sans-serif;
+
   width: 220px;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
@@ -204,7 +207,12 @@ header .logo h1 {
   height: 200px;
   background: linear-gradient(90deg, #ff9a9e, #fad0c4);
   color: #fff;
-  font-family: "Assistant", sans-serif;
+  /* font-family: "Heebo", sans-serif; */
+  font-family: "Varela Round", sans-serif;
+  /* font-family: "Rubik", sans-serif; */
+
+  font-size: 16px;
+  line-height: 1.6;
   font-weight: 700;
   font-size: 1.1em;
   display: flex;
@@ -627,5 +635,155 @@ footer .social-icons a img:hover {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+/* =========trivia========= */
+.trivia {
+  min-height: 100dvh;
+  display: grid;
+  justify-items: center;
+  align-items: start;
+  padding: 40px 16px;
+}
+
+.card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: clamp(16px, 3.5vw, 28px);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--pink-200);
+}
+
+.hidden {
+  display: none;
+}
+
+.q-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4px 0 8px;
+  color: #7a5a69;
+  font-size: 0.95rem;
+}
+
+.progress-wrap {
+  width: 100%;
+  height: 10px;
+  background: var(--pink-100);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid var(--pink-200);
+  margin-bottom: 14px;
+}
+.progress {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--pink-400), var(--pink-500));
+  transition: width 0.4s ease;
+}
+
+.question {
+  margin: 10px 0 14px;
+  line-height: 1.35;
+}
+
+.answers {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+}
+
+.answer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  width: 260px;
+
+  text-align: center;
+  padding: 0 18px;
+  border-radius: 16px;
+  font-size: 1.06rem;
+  font-weight: 600;
+  background: linear-gradient(180deg, var(--pink-50), #fff);
+  border: 1px solid var(--pink-200);
+  box-shadow: 0 6px 18px rgba(216, 52, 124, 0.1);
+  transition: transform 0.08s ease, background 0.2s ease, border-color 0.2s ease,
+    box-shadow 0.2s ease, filter 0.2s ease;
+}
+.answer:hover {
+  background: var(--pink-100);
+}
+.answer:active {
+  transform: scale(0.99);
+}
+.answer.selected {
+  background: #f8f6d7;
+  border-color: var(--pink-400);
+}
+.answer.correct {
+  background: #eafff0;
+  border-color: #20b15a;
+}
+.answer.wrong {
+  background: #fff0f0;
+  border-color: #ff6b6b;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 14px;
+  gap: 10px;
+}
+
+.btn {
+  background: var(--white);
+  color: var(--pink-700);
+  border: 2px solid var(--pink-500);
+  padding: 10px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.05s ease, background 0.2s ease, color 0.2s ease;
+}
+.btn:hover {
+  background: var(--pink-100);
+}
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.btn.primary {
+  background: linear-gradient(90deg, var(--pink-400), var(--pink-500));
+  color: var(--white);
+  border-color: transparent;
+}
+.btn.primary:hover {
+  filter: brightness(1.05);
+}
+
+.score {
+  font-size: 2.2rem;
+  margin: 6px 0 8px;
+  color: var(--pink-700);
+  font-weight: 800;
+}
+.score-msg {
+  margin: 0 0 6px;
+}
+
+@media (max-width: 420px) {
+  .trivia .answer {
+    font-size: 1rem;
+    padding: 12px 14px;
+  }
+  .trivia .btn {
+    font-size: 0.98rem;
+    padding: 11px 18px;
   }
 }

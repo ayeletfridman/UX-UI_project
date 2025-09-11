@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>חידון טריוויה – קפה</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <div class="logo">
+          <h1>Cafe Joy</h1>
+          <img src="../images/logo.png" alt="לוגו Cafe Joy" class="logo-img" />
+        </div>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="../index.html">בית</a></li>
+            <li><a href="about.html">אודות</a></li>
+            <li><a href="media.html">מדיה</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">צור קשר</a></li>
+            <li><a href="trivia.html">טריוויה</a></li>
+          </ul>
+          <div class="burger">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <nav class="side-nav">
+            <ul>
+              <li><a href="../index.html">בית</a></li>
+              <li><a href="about.html" class="active">אודות</a></li>
+              <li><a href="media.html">מדיה</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="contact.html">צור קשר</a></li>
+              <li><a href="trivia.html">טריוויה</a></li>
+            </ul>
+          </nav>
+        </nav>
+      </header>
+      <section class="trivia">
+        <section id="quiz-card" class="card hidden">
+          <div class="progress-wrap" aria-label="התקדמות השאלות">
+            <div id="progress" class="progress"></div>
+          </div>
+
+          <div class="q-meta">
+            <span id="question-counter" class="counter">שאלה 1 מתוך 10</span>
+          </div>
+
+          <h2 id="question-text" class="question" aria-live="polite"></h2>
+
+          <ul id="answers" class="answers" role="list"></ul>
+
+          <div class="actions">
+            <button id="next-btn" class="btn" disabled>
+              גלה את התשובה הנכונה
+            </button>
+          </div>
+        </section>
+
+        <section id="start-card" class="card">
+          <h2>ברוכים הבאים!</h2>
+          <p>לחצו על "התחל" ותענו על 10 שאלות קצרות בנושא קפה.</p>
+          <button id="start-btn" class="btn primary">התחל</button>
+        </section>
+
+        <section id="result-card" class="card hidden" aria-live="polite">
+          <h2>התוצאה שלך</h2>
+          <p class="score"><span id="score"></span> / 10</p>
+          <p id="score-message" class="score-msg"></p>
+          <div class="actions">
+            <button id="restart-btn" class="btn">שחקו שוב</button>
+          </div>
+        </section>
+      </section>
+
+      <footer>
+        <p>נבנה על ידי: איילת ויזל © 2025</p>
+        <div class="social-icons">
+          <a href="#"><img src="../images/facebook.webp" alt="Facebook" /></a>
+          <a href="#"><img src="../images/instegram.webp" alt="Twitter" /></a>
+          <a href="#"><img src="../images/linkedin.png" alt="LinkedIn" /></a>
+          <a href="#"><img src="../images/youtube.png" alt="YouTube" /></a>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      const QUESTIONS = [
+        {
+          q: "מאיזה פרי מופק הקפה?",
+          a: ["שקד", "דובדבן", "גלעין של דובדבן הקפה (קופי צ'רי)", "חרוב"],
+          correct: 2,
+          explain:
+            "ה'קופי צ'רי' הוא פרי דמוי דובדבן ובתוכו הזרעים שהם פולי הקפה.",
+        },
+        {
+          q: "מה ההבדל העיקרי בין ערביקה לרובוסטה?",
+          a: [
+            "ערביקה מתוקה ועדינה יותר; רובוסטה מרירה ובעלת יותר קפאין",
+            "רובוסטה יקרה יותר תמיד",
+            "ערביקה גדלה רק באפריקה",
+            "אין הבדל משמעותי",
+          ],
+          correct: 0,
+        },
+        {
+          q: "מהי רמת הקלייה שנותנת טעמים יותר שוקולדיים ומרים?",
+          a: ["קלייה בהירה", "קלייה בינונית", "קלייה כהה", "קלייה ירוקה"],
+          correct: 2,
+        },
+        {
+          q: "איזו טמפרטורת מים מומלצת להכנת קפה פילטר?",
+          a: ["50–60°C", "70–75°C", "92–96°C", "100–105°C"],
+          correct: 2,
+        },
+        {
+          q: "מהו יחס המים-קפה המקובל ל-V60 (למשל לכוס אחת)?",
+          a: ["1:5", "1:10", "1:15–1:17", "1:25"],
+          correct: 2,
+        },
+        {
+          q: "במשקה קפוצ'ינו היחס המסורתי בין אספרסו לחלב מוקצף הוא בערך:",
+          a: ["1:1", "1:2", "1:3", "1:4"],
+          correct: 1,
+        },
+        {
+          q: "מה תפקיד הטמפאר באספרסו?",
+          a: [
+            "לחמם את הפורטה-פילטר",
+            "לדחוס את הקפה בסלסלה לשטח אחיד",
+            "למדוד את משקל הקפה",
+            "לסנן שמנים",
+          ],
+          correct: 1,
+        },
+        {
+          q: "איזה משקה הוא 'אמריקנו'?",
+          a: [
+            "אספרסו עם חלב",
+            "אספרסו עם מים חמים",
+            "פילטר חזק",
+            "אספרסו כפול מקוצר",
+          ],
+          correct: 1,
+        },
+        {
+          q: "מה משפיע ביותר על רעננות וטעם פולי קפה?",
+          a: [
+            "תאריך הקלייה ואחסון אטום",
+            "צבע האריזה בלבד",
+            "שם המותג",
+            "טיטולים...",
+          ],
+          correct: 0,
+        },
+        {
+          q: "מה קורה כשמידת הטחינה עדינה מדי לאספרסו?",
+          a: [
+            "זרימה מהירה ותת-מיצוי",
+            "זרימה איטית/טפטוף ומיצוי יתר",
+            "אין הבדל",
+            "המשקה קר יותר",
+          ],
+          correct: 1,
+        },
+      ];
+
+      const startCard = document.getElementById("start-card");
+      const quizCard = document.getElementById("quiz-card");
+      const resultCard = document.getElementById("result-card");
+      const questionText = document.getElementById("question-text");
+      const answersList = document.getElementById("answers");
+      const nextBtn = document.getElementById("next-btn");
+      const startBtn = document.getElementById("start-btn");
+      const restartBtn = document.getElementById("restart-btn");
+      const questionCounter = document.getElementById("question-counter");
+      const progress = document.getElementById("progress");
+      const scoreEl = document.getElementById("score");
+      const scoreMsg = document.getElementById("score-message");
+
+      let current = 0;
+      let score = 0;
+      let selectedIndex = null;
+
+      function show(el) {
+        el.classList.remove("hidden");
+      }
+      function hide(el) {
+        el.classList.add("hidden");
+      }
+
+      function renderQuestion() {
+        const item = QUESTIONS[current];
+        questionText.textContent = item.q;
+        questionCounter.textContent = `שאלה ${current + 1} מתוך ${
+          QUESTIONS.length
+        }`;
+        answersList.innerHTML = "";
+
+        item.a.forEach((txt, idx) => {
+          const li = document.createElement("li");
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "answer";
+          btn.textContent = txt;
+          btn.setAttribute("aria-pressed", "false");
+          btn.addEventListener("click", () => onSelect(idx));
+          li.appendChild(btn);
+          answersList.appendChild(li);
+        });
+
+        selectedIndex = null;
+        nextBtn.disabled = true;
+        updateProgress();
+      }
+
+      function onSelect(idx) {
+        answersList.querySelectorAll(".answer").forEach((b) => {
+          b.classList.remove("selected");
+          b.setAttribute("aria-pressed", "false");
+        });
+
+        const chosenBtn = answersList.querySelectorAll(".answer")[idx];
+        chosenBtn.classList.add("selected");
+        chosenBtn.setAttribute("aria-pressed", "true");
+
+        selectedIndex = idx;
+        nextBtn.disabled = false;
+      }
+
+      function updateProgress() {
+        const pct = (current / QUESTIONS.length) * 100;
+        progress.style.width = pct + "%";
+        progress.setAttribute("aria-valuenow", Math.round(pct));
+      }
+
+      function submitCurrent() {
+        if (selectedIndex === null) return;
+
+        const item = QUESTIONS[current];
+
+        answersList.querySelectorAll(".answer").forEach((b, i) => {
+          b.disabled = true;
+          if (i === item.correct) b.classList.add("correct");
+          if (i === selectedIndex && i !== item.correct)
+            b.classList.add("wrong");
+        });
+
+        if (selectedIndex === item.correct) score++;
+
+        nextBtn.textContent = current < QUESTIONS.length - 1 ? "המשך" : "סיום";
+      }
+
+      function nextStep() {
+        if (nextBtn.textContent !== "גלה את התשובה הנכונה") {
+          current++;
+          if (current < QUESTIONS.length) {
+            nextBtn.textContent = "גלה את התשובה הנכונה";
+            renderQuestion();
+          } else {
+            showResults();
+          }
+        } else {
+          submitCurrent();
+        }
+      }
+
+      function showResults() {
+        hide(quizCard);
+        show(resultCard);
+        scoreEl.textContent = score.toString();
+
+        let msg;
+        if (score >= 8) {
+          msg = "אלוף/ה! בריסטה אמיתי/ת – הכוס שלך תמיד מכוילת.";
+        } else if (score >= 5) {
+          msg = "יפה מאוד! יש בסיס טוב — עוד קצת אימון ותהיה תמצית מושלמת.";
+        } else {
+          msg = "יש לאן להשתפר ☕ נסו שוב וחדדו את מידת הטחינה 😉";
+        }
+        scoreMsg.textContent = msg;
+
+        // מלא פס ההתקדמות
+        progress.style.width = "100%";
+        progress.setAttribute("aria-valuenow", 100);
+      }
+
+      function startQuiz() {
+        current = 0;
+        score = 0;
+        selectedIndex = null;
+        hide(startCard);
+        hide(resultCard);
+        show(quizCard);
+        nextBtn.textContent = "גלה את התשובה הנכונה";
+        renderQuestion();
+      }
+
+      function restartQuiz() {
+        show(startCard);
+        hide(quizCard);
+        hide(resultCard);
+        progress.style.width = "0%";
+        progress.setAttribute("aria-valuenow", 0);
+      }
+
+      startBtn.addEventListener("click", startQuiz);
+      restartBtn.addEventListener("click", startQuiz);
+      nextBtn.addEventListener("click", nextStep);
+
+      document.addEventListener("keydown", (e) => {
+        if (quizCard.classList.contains("hidden")) return;
+        const answers = Array.from(answersList.querySelectorAll(".answer"));
+        if (!answers.length) return;
+
+        if (e.key >= "1" && e.key <= "4") {
+          const idx = parseInt(e.key, 10) - 1;
+          if (answers[idx]) onSelect(idx);
+        }
+        if (e.key === "Enter") {
+          nextStep();
+        }
+      });
+    </script>
+
+    <script>
+      const burger = document.querySelector(".burger");
+      const sideNav = document.querySelector(".side-nav");
+
+      burger.addEventListener("click", () => {
+        sideNav.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>
