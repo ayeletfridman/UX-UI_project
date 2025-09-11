@@ -9,7 +9,6 @@ html {
   scroll-behavior: smooth;
   font-family: "Varela Round", sans-serif;
 }
-
 a {
   text-decoration: none;
   color: inherit;
@@ -71,6 +70,39 @@ header .logo h1 {
   margin: 5px 0;
   border-radius: 2px;
   transition: 0.3s;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.95);
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  .nav-links.nav-active {
+    display: flex;
+  }
+  .burger {
+    display: flex;
+  }
+  .info-boxes,
+  .about {
+    flex-direction: column;
+    align-items: center;
+  }
+  .side-banner {
+    display: none;
+  }
+  .slider h2 {
+    font-size: 18px;
+    bottom: 20px;
+    padding: 8px 12px;
+  }
 }
 
 /* SIDE NAV */
@@ -155,19 +187,6 @@ header .logo h1 {
   display: block;
 }
 
-.slide h2 {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: white;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-size: 22px;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
-}
-
 /* ====== INFO BOXES ====== */
 .info-boxes {
   display: flex;
@@ -194,6 +213,37 @@ header .logo h1 {
 .box:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.more-text {
+  display: none;
+  margin-top: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-size: 0.95em;
+  line-height: 1.6;
+  text-align: center;
+  transition: opacity 0.3s ease;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 10px;
+  color: #ff6f61;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.read-more:hover {
+  background: rgba(255, 255, 255, 0.6);
+  color: #6c63ff;
 }
 
 /* ====== SIDE BANNERS ====== */
@@ -231,37 +281,6 @@ header .logo h1 {
   transform: translateY(-10px) scale(1.05);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
   opacity: 1;
-}
-
-.more-text {
-  display: none;
-  margin-top: 12px;
-  background: rgba(255, 255, 255, 0.95);
-  color: #333;
-  padding: 12px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  font-size: 0.95em;
-  line-height: 1.6;
-  text-align: center;
-  transition: opacity 0.3s ease;
-}
-
-.read-more {
-  display: inline-block;
-  margin-top: 10px;
-  color: #ff6f61;
-  text-decoration: none;
-  font-weight: 700;
-  padding: 6px 12px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.3);
-  transition: all 0.3s ease;
-}
-
-.read-more:hover {
-  background: rgba(255, 255, 255, 0.6);
-  color: #6c63ff;
 }
 
 /* ====== FOOTER ====== */
@@ -382,7 +401,6 @@ footer .social-icons a img:hover {
   object-fit: contain;
   border-radius: 15px;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
-  transition: transform 0.3s ease;
 }
 #lightbox-close {
   color: #fff;
@@ -435,8 +453,6 @@ footer .social-icons a img:hover {
   position: relative;
   font-size: 16px;
   animation: fadeInUp 0.8s forwards;
-}
-.accordion-btn {
   font: inherit;
   color: inherit;
 }
@@ -532,38 +548,6 @@ footer .social-icons a img:hover {
 }
 
 /* ====== RESPONSIVE ====== */
-@media screen and (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background: rgba(255, 255, 255, 0.95);
-    position: absolute;
-    top: 70px;
-    right: 0;
-    width: 100%;
-    padding: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  }
-  .nav-links.nav-active {
-    display: flex;
-  }
-  .burger {
-    display: flex;
-  }
-  .info-boxes,
-  .about {
-    flex-direction: column;
-    align-items: center;
-  }
-  .side-banner {
-    display: none;
-  }
-  .slider h2 {
-    font-size: 18px;
-    bottom: 20px;
-    padding: 8px 12px;
-  }
-}
 
 .thankyou {
   display: flex;
@@ -665,7 +649,6 @@ footer .social-icons a img:hover {
 .progress {
   width: 0%;
   height: 100%;
-  /* background: linear-gradient(90deg, var(--pink-400), var(--pink-500)); */
   transition: width 0.4s ease;
 }
 
@@ -689,14 +672,13 @@ footer .social-icons a img:hover {
   justify-content: center;
   min-height: 56px;
   width: 260px;
-
   text-align: center;
   padding: 0 18px;
   border-radius: 16px;
   font-size: 1.06rem;
   font-weight: 600;
-  background: linear-gradient(180deg, var(--pink-50), #fff);
-  border: 1px solid var(--pink-200);
+  background: linear-gradient(180deg, #fbece8, #fff);
+  border: 1px solid #fad0c4;
   box-shadow: 0 6px 18px rgba(216, 52, 124, 0.1);
   transition: transform 0.08s ease, background 0.2s ease, border-color 0.2s ease,
     box-shadow 0.2s ease, filter 0.2s ease;
@@ -716,7 +698,7 @@ footer .social-icons a img:hover {
   border-color: #20b15a;
 }
 .answer.wrong {
-  background: #fff0f0;
+  background: #f9d0d0;
   border-color: #ff6b6b;
 }
 
@@ -728,9 +710,9 @@ footer .social-icons a img:hover {
 }
 
 .btn {
-  background: var(--white);
-  color: var(--pink-700);
-  border: 2px solid var(--pink-500);
+  background: white;
+  color: #ff9a9e;
+  border: 2px solid #fad0c4;
   padding: 10px 16px;
   border-radius: 999px;
   cursor: pointer;
@@ -756,7 +738,7 @@ footer .social-icons a img:hover {
 .score {
   font-size: 2.2rem;
   margin: 6px 0 8px;
-  color: var(--pink-700);
+  color: #ff9a9e;
   font-weight: 800;
 }
 .score-msg {
