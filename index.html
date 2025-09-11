@@ -2,19 +2,11 @@
 <html lang="he">
   <head>
     <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap"
       rel="stylesheet"
     />
     <link
@@ -82,7 +74,7 @@
     </section>
 
     <section class="info-boxes">
-      <div class="box">
+      <div class="box" data-aos="fade-up" data-aos-offset="120">
         <h3>הקפה שלנו</h3>
         <p>
           אנו משתמשים בפולי קפה איכותיים שנקלים מדי שבוע כדי להבטיח טעם טרי
@@ -98,7 +90,12 @@
         </div>
       </div>
 
-      <div class="box">
+      <div
+        class="box"
+        data-aos="fade-up"
+        data-aos-offset="120"
+        data-aos-delay="150"
+      >
         <h3>המיקום שלנו</h3>
         <p>בית הקפה נמצא בלב העיר, נגיש ונוח להגעה.</p>
         <a href="#" class="read-more" data-target="location">לקרוא עוד</a>
@@ -129,6 +126,16 @@
         <a href="#"><img src="images/youtube.png" alt="YouTube" /></a>
       </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        once: true,
+        duration: 700,
+        easing: "ease-out",
+      });
+    </script>
+
     <!-- slider script -->
     <script>
       const slides = document.querySelectorAll(".slide");
